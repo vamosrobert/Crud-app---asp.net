@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="container">
+
+    <script src="~/Scripts/script.js"></script>
+
+    <!-- Form -->
+
+    <form>
+        <div class="col-sm-10">
+            <div class="col-sm-10">
+                <h2 class="pb-2">Contact Us</h2>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="email">Email address</label>
+                    <input type="email" class="form-control p-0 w-100" id="email" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="phoneNum">Phone number</label>
+                    <input type="number" class="form-control" id="phoneNum" placeholder="Enter Phone Number">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label for="domain">Domain</label>
+                    <input type="text" class="form-control" id="domain" placeholder="Enter domain">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea type="text" class="form-control" id="notes" placeholder="Enter Notes(50 characters max)"></textarea>
+                </div>
+            </div>
+
+            <div class="col-sm-10" id="spacer">
+                <button type="submit" class="btn btn-default col-sm-3" onclick="fnInsert()">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <!-- Table -->
+
+    <table id="ViewValues" class="table table-bordered"></table>
+
+    <!-- Delete Modal -->
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content panel-bodyModal">
+                <div class="modal-header" id="red">
+                    Delete
+                </div>
+                <div class="modal-body">
+                    Are you sure you you want to delete?
+                    <br />
+                    <p id="warning">The process can't be undone</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-delete" data-dismiss="modal">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Edit Modal -->
+
+    <div class="modal fade" id="confirm-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content panel-bodyModal" id="editModal">
+                <div class="modal-header">
+                    <div class="col-sm-10">
+                        <h2 class="pb-2">Edit</h2>
+                    </div>
+                </div>
+                <div class="modal-body" id="spacerSmall">
+                    <form>
+                        <div class="col-sm-10">
+
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="firstName">First Name:</label>
+                                    <input type="text" class="form-control" id="id-edit" style="display:none">
+
+                                    <input type="text" class="form-control" id="firstName-edit" placeholder="Enter first name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName-edit" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="email">Email address</label>
+                                    <input type="email" class="form-control p-0 w-100" id="email-edit" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="phoneNum">Phone number</label>
+                                    <input type="number" class="form-control" id="phoneNum-edit" placeholder="Enter Phone Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label for="domain">Domain</label>
+                                    <input type="text" class="form-control" id="domain-edit" placeholder="Enter domain">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <label for="notes">Notes</label>
+                                    <textarea type="text" class="form-control" id="notes-edit" placeholder="Enter Notes(50 characters max)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <a class="btn btn-default btn-edit" onclick="UpdateData()" data-dismiss="modal">Save</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                        </div>
+                            
+                       
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
